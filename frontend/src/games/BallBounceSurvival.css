@@ -1,0 +1,108 @@
+.ball-bounce-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a0a3a 50%, #0a0e27 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ball-header {
+  position: absolute;
+  top: 20px;
+  z-index: 10;
+}
+
+.ball-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(0, 200, 255, 0.15);
+  border: 2px solid rgba(0, 200, 255, 0.5);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0ea5e9;
+}
+
+.ball-stat .value {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.ball-canvas {
+  border: 3px solid rgba(0, 200, 255, 0.6);
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(10, 20, 50, 0.8), rgba(20, 30, 80, 0.8));
+  box-shadow: 0 0 60px rgba(0, 200, 255, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.ball-instruction {
+  position: absolute;
+  bottom: 30px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 1rem;
+  z-index: 10;
+}
+
+.ball-gameover {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.ball-modal {
+  text-align: center;
+  padding: 40px;
+  background: rgba(0, 200, 255, 0.15);
+  border: 3px solid #0ea5e9;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+
+.ball-modal h2 {
+  font-size: 3rem;
+  color: #0ea5e9;
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px #0ea5e9;
+}
+
+.ball-modal .final-score {
+  font-size: 2rem;
+  color: #00ff88;
+  margin-bottom: 30px;
+  font-weight: 900;
+}
+
+.ball-modal button {
+  padding: 14px 40px;
+  border: 2px solid #00ff88;
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 255, 136, 0.05));
+  color: #00ff88;
+  font-size: 1.1rem;
+  font-weight: 900;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.ball-modal button:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.4), rgba(0, 255, 136, 0.2));
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+}

@@ -1,0 +1,112 @@
+.memory-flip-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a0a3a 50%, #0a0e27 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.memory-flip-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 0, 128, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(0, 165, 233, 0.15) 0%, transparent 50%);
+  animation: float 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.memory-header {
+  position: absolute;
+  top: 20px;
+  display: flex;
+  gap: 30px;
+  z-index: 10;
+}
+
+.header-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255, 0, 128, 0.2);
+  border: 2px solid rgba(255, 0, 128, 0.5);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+}
+
+.header-stat .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  color: #ff64c8;
+}
+
+.header-stat .value {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #ff64c8;
+}
+
+.memory-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 16px;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.memory-card.flipped {
+  box-shadow: 0 0 30px currentColor;
+}
+
+.memory-card:hover {
+  transform: translateY(-2px);
+}
+
+.memory-card:active {
+  transform: scale(0.95);
+}
+
+.card-text {
+  font-size: 0.7rem;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.5px;
+}
+
+.memory-instruction {
+  position: absolute;
+  bottom: 30px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  z-index: 10;
+}

@@ -1,0 +1,145 @@
+.gravity-switch-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a2a4a 100%);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.gravity-header {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  z-index: 10;
+  padding: 0 20px;
+}
+
+.gravity-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(14, 165, 233, 0.15);
+  border: 2px solid rgba(14, 165, 233, 0.5);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #0ea5e9;
+}
+
+.gravity-stat .value {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.gravity-stat .value.down {
+  color: #ff0080;
+}
+
+.gravity-stat .value.up {
+  color: #00ff88;
+}
+
+.gravity-game-area {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  background: rgba(10, 20, 50, 0.5);
+  border: 2px solid rgba(14, 165, 233, 0.3);
+  margin: 100px 50px 50px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.gravity-player {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  font-size: 2rem;
+  color: #00ff88;
+  text-shadow: 0 0 20px #00ff88;
+  z-index: 5;
+}
+
+.gravity-obstacle {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 15px currentColor;
+}
+
+.gravity-ui {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 10;
+}
+
+.gravity-instruction {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gravity-gameover {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.gravity-modal {
+  text-align: center;
+  padding: 40px;
+  background: rgba(14, 165, 233, 0.15);
+  border: 3px solid #0ea5e9;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+
+.gravity-modal h2 {
+  font-size: 3.5rem;
+  color: #ff0080;
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px #ff0080;
+}
+
+.gravity-modal .final-score {
+  font-size: 2rem;
+  color: #0ea5e9;
+  margin-bottom: 30px;
+  font-weight: 900;
+}
+
+.gravity-modal button {
+  padding: 14px 40px;
+  border: 2px solid #0ea5e9;
+  background: rgba(14, 165, 233, 0.15);
+  color: #0ea5e9;
+  font-size: 1.1rem;
+  font-weight: 900;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.gravity-modal button:hover {
+  background: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 0 30px #0ea5e9;
+}

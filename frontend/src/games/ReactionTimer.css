@@ -1,0 +1,138 @@
+.reaction-timer-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.reaction-header {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  gap: 30px;
+  z-index: 10;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.stat-box .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+  color: white;
+}
+
+.stat-box .value {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: white;
+}
+
+.reaction-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.go-message span {
+  font-size: 5rem;
+  color: white;
+  font-weight: 900;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+}
+
+.reaction-result {
+  text-align: center;
+}
+
+.reaction-result .time {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.reaction-result .amazing,
+.reaction-result .good,
+.reaction-result .slow {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.reaction-result .amazing {
+  color: #00ff88;
+  text-shadow: 0 0 20px #00ff88;
+}
+
+.reaction-result .good {
+  color: #ffff00;
+  text-shadow: 0 0 20px #ffff00;
+}
+
+.reaction-result .slow {
+  color: #ff2d2d;
+  text-shadow: 0 0 20px #ff2d2d;
+}
+
+.too-early {
+  color: white;
+  text-align: center;
+}
+
+.too-early p:first-child {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ff2d2d;
+  text-shadow: 0 0 20px #ff2d2d;
+}
+
+.reaction-instruction {
+  position: absolute;
+  bottom: 40px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  text-align: center;
+  z-index: 10;
+}

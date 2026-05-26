@@ -1,0 +1,169 @@
+.runner-container {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a2a4a 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.runner-header {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  z-index: 10;
+  padding: 0 20px;
+}
+
+.runner-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(0, 255, 136, 0.15);
+  border: 2px solid rgba(0, 255, 136, 0.5);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #00ff88;
+}
+
+.runner-stat .value {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.runner-game {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.runner-lanes {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+  height: 600px;
+  perspective: 1000px;
+}
+
+.runner-lane {
+  flex: 1;
+  background: rgba(0, 200, 255, 0.1);
+  border: 2px solid rgba(0, 200, 255, 0.3);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.runner-lane.active {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: rgba(0, 255, 136, 0.6);
+  box-shadow: inset 0 0 30px rgba(0, 255, 136, 0.2);
+}
+
+.runner-player {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  color: #00ff88;
+  text-shadow: 0 0 20px #00ff88;
+  z-index: 5;
+}
+
+.runner-obstacle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #ff0080;
+  text-shadow: 0 0 15px #ff0080;
+}
+
+.runner-controls {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  z-index: 10;
+}
+
+.runner-controls button {
+  padding: 12px 24px;
+  border: 2px solid #00ff88;
+  background: rgba(0, 255, 136, 0.15);
+  color: #00ff88;
+  font-weight: 900;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.runner-controls button:hover {
+  background: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 20px #00ff88;
+}
+
+.runner-gameover {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 39, 0.95);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+}
+
+.runner-gameover h2 {
+  font-size: 3.5rem;
+  color: #ff0080;
+  text-shadow: 0 0 30px #ff0080;
+}
+
+.runner-gameover p {
+  font-size: 2rem;
+  color: #00ff88;
+  font-weight: 900;
+}
+
+.runner-gameover button {
+  padding: 16px 40px;
+  border: 2px solid #00ff88;
+  background: rgba(0, 255, 136, 0.15);
+  color: #00ff88;
+  font-weight: 900;
+  border-radius: 12px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+
+.runner-gameover button:hover {
+  background: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 30px #00ff88;
+}
