@@ -355,3 +355,107 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(14, 165, 233, 0.6);
 }
+
+/* ===== TERMS / ONBOARDING MODAL ===== */
+.terms-shell {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.terms-backdrop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2,6,23,0.6), rgba(2,6,23,0.75));
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: inset 0 0 120px rgba(2,6,23,0.45);
+}
+
+.terms-panel {
+  position: relative;
+  width: min(920px, calc(100% - 48px));
+  max-height: calc(100vh - 96px);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-radius: 18px;
+  padding: 28px 28px 20px 28px;
+  box-shadow: 0 20px 60px rgba(2,6,23,0.6), 0 0 40px rgba(14,165,233,0.06) inset;
+  z-index: 10000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.terms-panel.cinematic-panel {
+  width: min(840px, calc(100% - 80px));
+  text-align: center;
+  padding: 48px;
+}
+
+.terms-header .terms-badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(14,165,233,0.08);
+  color: #bfe9ff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid rgba(14,165,233,0.14);
+}
+
+.terms-header h1 {
+  margin-top: 6px;
+  font-size: 1.6rem;
+  letter-spacing: -0.5px;
+}
+
+.terms-lead {
+  color: #cbd5e1;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
+.terms-copy p { color: #d1e9ff; opacity: 0.9; }
+
+.terms-scroll {
+  overflow: auto;
+  padding-right: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.terms-section h2 {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.terms-section p { color: rgba(220,230,255,0.85); line-height: 1.5; }
+
+.terms-footer-row {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.terms-small-meta { text-align: left; color: rgba(200,220,255,0.65); margin-top: 6px; }
+
+.welcome-title { font-size: 2.1rem; letter-spacing: -1px; margin-bottom: 8px; }
+.welcome-copy { color: rgba(220,230,255,0.9); }
+
+@media (max-width: 720px) {
+  .terms-panel { width: calc(100% - 28px); padding: 18px; max-height: calc(100vh - 48px); }
+  .terms-footer-row { justify-content: center; }
+}

@@ -55,101 +55,111 @@ const termsItems = [
 ];
 
 export default function TermsOverlay({ onAccept, onDecline, isTransitioning, isSoundReady }) {
+  const overlayVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
+  const panelVariants = {
+    hidden: { opacity: 0, y: 28, scale: 0.995 },
+    visible: { opacity: 1, y: 0, scale: 1 },
+    exit: { opacity: 0, y: -18, scale: 0.994 },
+  };
+
   return (
-    <AnimatePresence mode="wait">
-      <motion.section
+    <AnimatePresence>
+      <motion.div
         className="terms-shell"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        variants={overlayVariants}
+        transition={{ duration: 0.45 }}
+        aria-hidden={false}
       >
-        <div className="terms-background" />
-        <AnimatePresence mode="wait">
-          {!isTransitioning ? (
-            <motion.div
-              key="terms-panel"
-              className="terms-panel"
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              role="dialog"
-              aria-modal="true"
-            >
-              <div className="terms-header">
-                <span className="terms-badge">GeoGames Secure Access</span>
-                <h1>Terms & Conditions</h1>
-                <p>Read these conditions before entering the premium GeoGames arena.</p>
-              </div>
+        <div className="terms-backdrop" aria-hidden="true" />
 
-              <div className="terms-copy">
+        {!isTransitioning ? (
+          <motion.article
+            className="terms-panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label="GeoGames Terms and Conditions"
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            variants={panelVariants}
+            transition={{ duration: 0.65, ease: "circOut" }}
+          >
+            <header className="terms-header">
+              <div className="terms-badge">GeoGames · Secure Access</div>
+              <h1>Terms &amp; Conditions</h1>
+              <p className="terms-lead">Please read these terms to continue to GeoGames. Acceptance is required to access the site.</p>
+            </header>
+
+            <div className="terms-copy">
+              <p>
+                By accepting, you acknowledge and agree to the following terms. The content is presented clearly
+                and is scrollable — take a moment to review the protections and responsibilities.
+              </p>
+            </div>
+
+            <div className="terms-scroll" tabIndex={0}>
+              {termsItems.map((item) => (
+                <section className="terms-section" key={item.title}>
+                  <h2>{item.title}</h2>
+                  <p>{item.description}</p>
+                </section>
+              ))}
+
+              <section className="terms-section">
+                <h2>General Protections</h2>
                 <p>
-                  By accepting, you acknowledge the rules, protections, and responsibilities for GeoGames.
-                  This agreement must be accepted before using the platform.
+                  GeoGames reserves the right to change, remove, or limit access to content and features. Use of the
+                  platform must be lawful, non-malicious, and respectful of intellectual property.
                 </p>
-              </div>
+              </section>
+            </div>
 
-              <div className="terms-content">
-                <ul className="terms-list">
-                  {termsItems.map((item) => (
-                    <li key={item.title}>
-                      <strong>{item.title}</strong>
-                      <span>{item.description}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <footer className="terms-footer-row">
+              <AnimatedButton variant="secondary" onClick={onDecline}>
+                Decline
+              </AnimatedButton>
+              <AnimatedButton onClick={onAccept}>Accept</AnimatedButton>
+            </footer>
 
-              <div className="terms-button-row">
-                <AnimatedButton variant="secondary" onClick={onDecline}>
-                  Decline
-                </AnimatedButton>
-                <AnimatedButton onClick={onAccept}>Accept</AnimatedButton>
-              </div>
-
-              <div className="terms-footer">
-                <span>{isSoundReady ? "Audio system ready." : "Initializing audio readiness..."}</span>
-                <span>GeoGames is optimized for modern desktop and mobile play.</span>
-              </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="welcome-panel"
-              className="terms-panel cinematic-panel"
+            <div className="terms-small-meta">
+              <small>{isSoundReady ? "Audio system ready." : "Audio: initializing..."}</small>
+            </div>
+          </motion.article>
+        ) : (
+          <motion.div
+            className="terms-panel cinematic-panel"
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h1
+              className="welcome-title"
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.94 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
+              transition={{ delay: 0.35, duration: 0.7 }}
             >
-              <motion.p
-                className="welcome-caption"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                Access granted
-              </motion.p>
-              <motion.h1
-                className="welcome-title"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.45, duration: 0.8 }}
-              >
-                Welcome to GeoGames
-              </motion.h1>
-              <motion.p
-                className="welcome-copy"
-                initial={{ opacity: 0, y: 18 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.7, duration: 0.65 }}
-              >
-                The arcade experience is loading. Enjoy the premium gaming universe.
-              </motion.p>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.section>
+              Welcome to GeoGames
+            </motion.h1>
+            <motion.p
+              className="welcome-copy"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.6 }}
+            >
+              Loading the premium arcade. Enjoy a cinematic gaming experience.
+            </motion.p>
+          </motion.div>
+        )}
+      </motion.div>
     </AnimatePresence>
   );
 }
