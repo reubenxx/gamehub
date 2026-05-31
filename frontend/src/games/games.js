@@ -80,6 +80,22 @@ export const games = [
     component: "BallBounceSurvival",
     color: "#0ea5e9",
   },
+  {
+    id: "rhythm-runner",
+    name: "Rhythm Runner",
+    description: "A fast-paced neon rhythm platformer — timing, jumps and flow.",
+    difficulty: "Varies",
+    component: "RhythmRunner",
+    color: "#00e6ff",
+  },
+  {
+    id: "geo-dashers",
+    name: "Geo Dashers",
+    description: "A polished full-screen rhythm platformer with flight physics, vibrant obstacles, and replayable levels.",
+    difficulty: "Hard",
+    component: "GeoDashers",
+    color: "#56eeff",
+  },
 ];
 
 export const getGameById = (id) => games.find((game) => game.id === id);

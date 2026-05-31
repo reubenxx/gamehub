@@ -113,20 +113,22 @@ html, body, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  max-width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 20px;
-  max-height: 100vh;
+  padding: clamp(12px, 3vw, 40px);
+  min-height: 100vh;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .title {
-  font-size: clamp(3rem, 10vw, 5rem);
+  font-size: clamp(2rem, 8vw, 5rem);
   font-weight: 800;
   letter-spacing: -2px;
-  margin-bottom: 16px;
+  margin-bottom: clamp(8px, 2vw, 16px);
+  margin-top: clamp(8px, 2vw, 20px);
   background: linear-gradient(
     135deg,
     #ffffff 0%,
@@ -141,35 +143,38 @@ html, body, #root {
 }
 
 .subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
   opacity: 0.8;
-  margin-bottom: 48px;
+  margin-bottom: clamp(24px, 4vw, 48px);
   font-weight: 300;
   letter-spacing: 0.5px;
   color: #cbd5e1;
+  padding: 0 clamp(8px, 2vw, 20px);
 }
 
 /* ===== GAME GRID ===== */
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(clamp(140px, 80vw, 240px), 1fr));
+  gap: clamp(12px, 2vw, 24px);
   width: 100%;
-  padding: 0 20px;
-  max-width: 1000px;
+  max-width: 100%;
+  padding: 0 clamp(8px, 2vw, 40px);
+  box-sizing: border-box;
+  margin-bottom: clamp(20px, 4vh, 60px);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .game-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: clamp(10px, 1.5vw, 16px);
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .game-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(8px, 1.5vw, 12px);
   }
 }
 
@@ -181,15 +186,15 @@ html, body, #root {
 }
 
 .card-content {
-  padding: 28px 24px;
-  border-radius: 16px;
+  padding: clamp(12px, 3vw, 24px);
+  border-radius: clamp(12px, 2vw, 16px);
   border: 1.5px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 8px 32px 0 rgba(14, 165, 233, 0.1),
     inset 0 1px 0 0 rgba(255, 255, 255, 0.2);
-  min-height: 180px;
+  min-height: clamp(130px, 25vw, 180px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -206,9 +211,9 @@ html, body, #root {
 }
 
 .card-title {
-  font-size: 1.3rem;
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: clamp(6px, 1.5vw, 12px);
   background: linear-gradient(135deg, #ffffff 0%, #0ea5e9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -216,11 +221,11 @@ html, body, #root {
 }
 
 .card-description {
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
   opacity: 0.75;
-  margin-bottom: 16px;
+  margin-bottom: clamp(8px, 1.5vw, 16px);
   flex-grow: 1;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .card-footer {
@@ -229,7 +234,7 @@ html, body, #root {
 }
 
 .play-button {
-  font-size: 0.85rem;
+  font-size: clamp(0.65rem, 1.2vw, 0.85rem);
   font-weight: 600;
   color: #0ea5e9;
   text-transform: uppercase;
@@ -250,31 +255,35 @@ html, body, #root {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 20px;
+  padding: clamp(12px, 3vw, 20px);
   background: linear-gradient(
     180deg,
-    rgba(10, 14, 39, 0.9) 0%,
+    rgba(10, 14, 39, 0.95) 0%,
     rgba(10, 14, 39, 0) 100%
   );
   backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: clamp(12px, 2vw, 20px);
   pointer-events: none;
+  flex-wrap: wrap;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .back-button-header {
   pointer-events: all;
-  padding: 10px 20px;
-  border-radius: 10px;
+  padding: clamp(6px, 1.5vw, 10px) clamp(12px, 2vw, 20px);
+  border-radius: clamp(8px, 1.5vw, 10px);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 1.5vw, 0.95rem);
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  white-space: nowrap;
 }
 
 .back-button-header:hover {
@@ -284,13 +293,18 @@ html, body, #root {
 }
 
 .game-page-title {
-  font-size: 1.4rem;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 700;
   background: linear-gradient(135deg, #ffffff 0%, #0ea5e9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   opacity: 0.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  min-width: 0;
 }
 
 /* ===== GAME NOT FOUND ===== */

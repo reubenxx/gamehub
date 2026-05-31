@@ -11,6 +11,8 @@ import AimTrainer from "../games/AimTrainer";
 import TapRhythm from "../games/TapRhythm";
 import GravitySwitch from "../games/GravitySwitch";
 import BallBounceSurvival from "../games/BallBounceSurvival";
+import RhythmRunner from "../games/RhythmRunner";
+import GeoDashers from "../games/GeoDashers";
 
 const gameComponents = {
   ClickerRush,
@@ -23,6 +25,8 @@ const gameComponents = {
   TapRhythm,
   GravitySwitch,
   BallBounceSurvival,
+  RhythmRunner,
+  GeoDashers,
 };
 
 export default function GamePage() {
